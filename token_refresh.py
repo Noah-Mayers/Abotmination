@@ -37,18 +37,18 @@ def main():
     with open("token.json", "w") as token:
       token.write(creds.to_json())
 
-  try:
-    service = build( "sheets", "v4", 
-      credentials=Credentials.from_authorized_user_file("token.json", SCOPES),
-      client_options={"quota_project_id": "abotmination"}
-      )
+  # try:
+  #   service = build( "sheets", "v4", 
+  #     credentials=Credentials.from_authorized_user_file("token.json", SCOPES),
+  #     client_options={"quota_project_id": "abotmination"}
+  #     )
     
-    # Retrieve the documents contents from the Docs service.
-    document = (service.spreadsheets().values().get(spreadsheetId=DOCUMENT_ID, range=DOCUMENT_RANGE).execute()).get('values', [])
+  #   # Retrieve the documents contents from the Docs service.
+  #   document = (service.spreadsheets().values().get(spreadsheetId=DOCUMENT_ID, range=DOCUMENT_RANGE).execute()).get('values', [])
 
-    print(f"The data requested is: {document}")
-  except HttpError as err:
-    print(err)
+  #   print(f"The data requested is: {document}")
+  # except HttpError as err:
+  #   print(err)
 
 
 if __name__ == "__main__":
